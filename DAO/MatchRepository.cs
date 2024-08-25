@@ -26,8 +26,8 @@ namespace SponsorAPI.DAO
 
                 var query = @"SELECT M.MatchID, M.MatchName, M.MatchDate, M.Location, COALESCE(SUM(P.AmountPaid), 0) AS TotalAmountPaid
                           FROM sports.Matches M
-                          LEFT JOIN sponsorship.Contracts C ON M.MatchID = C.MatchID
-                          LEFT JOIN sponsorship.Payments P ON C.ContractID = P.ContractID
+                          LEFT JOIN sports.Contracts C ON M.MatchID = C.MatchID
+                          LEFT JOIN sports.Payments P ON C.ContractID = P.ContractID
                           GROUP BY M.MatchID, M.MatchName, M.MatchDate, M.Location";
 
                 using (var command = new NpgsqlCommand(query, connection))

@@ -5,9 +5,9 @@ namespace SponsorAPI.DAO
 {
     public interface IMatchRepository
     {
-        public interface IMatchRepository
-        {
+       
+        
             Task<IEnumerable<Matches>> GetMatchesWithTotalPaymentsAsync();
-        }
+        
     }
 }

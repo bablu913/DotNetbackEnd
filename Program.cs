@@ -24,7 +24,6 @@ namespace SponsorAPI
                 options.AddPolicy("FrontEndClient", builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:5173"));
             });
 
-            builder.Services.AddScoped<ISponsorDAO, SponsorDaoImpl>();
             builder.Services.AddScoped<IMatchRepository, MatchRepository>();
             builder.Services.AddScoped<ISponsorRepository, SponsorRepository>();
             builder.Services.AddScoped<ISponsorMatchCount, SponsorMatchCountRepository>();

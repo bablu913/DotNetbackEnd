@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using SponsorAPI.DAO;
 
+
+
 namespace SponsorAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -15,7 +17,12 @@ namespace SponsorAPI.Controllers
             _matchRepository = matchRepository;
         }
 
-       
-       
+        [HttpGet("matches-with-payments")]
+        public async Task<IActionResult> GetMatchesWithPayments()
+        {
+            var matches = await _matchRepository.GetMatchesWithTotalPaymentsAsync();
+            return Ok(matches);
+        }
+
     }
 }
